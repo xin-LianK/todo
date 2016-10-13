@@ -1,7 +1,7 @@
 @mixin userRem ($design-size){
-  $device-width-size:$design-size,414px,412px,384px,375px,360px,320px;
+  $device-width-size:320px,360px,375px,384px,412px,414px,$design-size;
   @each $size in $device-width-size{
-    @media screen and (max-width: #{$size}){
+    @media screen and (min-width: #{$size}){
       html{
         font-size: 100px*$size/$design-size;
       }
