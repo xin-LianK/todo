@@ -1,0 +1,195 @@
+@mixin userRem ($design-size){
+  $device-width-size:$design-size,414px,412px,384px,375px,360px,320px;
+  @each $size in $device-width-size{
+    @media screen and (max-width: #{$size}){
+      html{
+        font-size: 100px*$size/$design-size;
+      }
+    }
+  }
+}
+@mixin center {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  @content;
+}
+@include userRem(720px);
+*{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+body{
+  font-size: 16px;
+}
+i{
+  font-style: normal;
+}
+.header{
+  width: 100%;
+  background: #333;
+  box-shadow: 1px 0 0 #2f2f2f;
+
+  &::after{
+    content: '';
+    clear: both;
+    display: block;
+  }
+  i{
+    font-size: 0.4rem;
+    font-style: normal;
+    color: #fff;
+  }
+  span{
+    color: #fff;
+    font-family: '微软雅黑';
+  }
+  .header-photo{
+    text-align: center;
+    line-height: 1rem;
+    float: left;
+    width: 1rem;
+    height: 1rem;
+  }
+  .header-data{
+    text-align: center;
+    line-height: 1rem;
+    float: left;
+    width: 5.2rem;
+    height: 1rem;
+  }
+  .header-add{
+    text-align: center;
+    line-height: 1rem;
+    float: right;
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
+.sub-hearder{
+	height: 0.4rem;
+	text-align: center;
+	line-height: 0.4rem;
+	background: #333;
+  display: none;
+  #search{
+  	display: inline-block;
+  	height: 0.3rem;
+  	width: 80%;
+  	text-align: center;
+  	line-height: 0.3rem;
+  	border: none;
+  	outline: none;
+  	border-radius: 0.1rem;
+  }
+}
+.dong{
+  display: block;
+}
+
+.contant{
+  overflow: hidden;
+  .item{
+    position: relative;
+    &::after{
+      content: '';
+      clear: both;
+      display: block;
+    }
+    &.bg{
+      background: #ccc;
+    }
+    @keyframes dis{
+      to{
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+    }
+    @keyframes move{
+      to{
+        transform: translateX(0);
+      }
+    }
+    &.dis{
+      animation: dis .8s ease both;
+    }
+    &.move{
+      animation: move .8s ease both;
+    }
+    .time{
+      float: left;
+      width: 1.2rem;
+      height: 1.3rem;
+      text-align: center;
+      line-height: 1.3rem;
+
+      span{
+        color: #bababa;
+        font-size: 0.24rem;
+      }
+    }
+
+
+
+    .elem{
+      position: relative;
+      float: left;
+      width:6rem;
+      height: 1.3rem;
+      border-left: 0.12rem solid #f6f6f6;
+      padding-top: 0.3rem;
+      padding-left: 0.4rem;
+      box-sizing: border-box;
+
+      .del{
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 1.2rem;
+        height: 1.3rem;
+        text-align: center;
+        line-height: 1.3rem;
+        transform: translateX(1.2rem);
+      }
+
+      p{
+        font-size: 0.3rem;
+        color: #2f2f2f;
+      }
+      span{
+        font-size: 0.23rem;
+        color: #9e9e9e;
+      }
+    }
+    .tick{
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      left: 1rem;
+      width: 0.53rem;
+      height: 0.53rem;
+      line-height: 0.53rem;
+      text-align: center;
+      border-radius: 50%;
+      border: 0.04rem solid #f2b84a;
+      box-sizing: border-box;
+
+      i{
+        color: #f46a1f;
+        font-size: 0.3rem;
+      }
+    }
+  }
+  .i-bottom{
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: #f6f6f6;
+  }
+}
