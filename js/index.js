@@ -78,11 +78,11 @@ $(function(){
     var index = $(this).closest('li').index();
     tudos.splice(index, 1);
     localStorage.tudos_data=JSON.stringify(tudos);
-
     $(this).closest('li').addClass('dis').delay(800).queue(function(){
       $(this).closest('li').remove()
       .removeClass('dis')
       .dequeue();
+      render();
     });
   });
 
